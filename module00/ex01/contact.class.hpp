@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 16:36:06 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/11 12:09:53 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/05/12 16:30:46 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define CONTACT_CLASS_H
 
 #include <iostream>
+#include <sstream>
 #include <string.h>
 #include <stdlib.h>
+#include <bits/stdc++.h>
 
 class contact
 {

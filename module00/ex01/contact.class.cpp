@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 16:40:34 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/07 21:55:45 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/05/12 16:00:53 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ contact::~contact(void)
 
 void	contact::print_partial_info(void) const
 {
-	std::string index;
-	print_string_or_space(std::to_string(this->index));
+	std::stringstream index;
+	std::string index_s;
+	index << this->index;
+	index_s = index.str();
+	print_string_or_space(index_s);
 	print_string_or_space(this->first_name);
 	print_string_or_space(this->last_name);
 	print_string_or_space(this->nickname);

@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:49:27 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/13 12:49:14 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Brain.hpp"
 
-void	ponyOnTheStack(std::string name, int age)
+
+Brain::Brain(void) : volume(12), nb_neurals(5)
 {
-	Pony Stacky(name, age);
+
+}
+
+Brain::~Brain(void)
+{
 	
-	Stacky.present_myself();
 }
 
-void	ponyOnTheHeap(std::string name, int age)
+std::string Brain::identify(void) const
 {
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
+	std::stringstream address_stream;
+	std::string address;
+	address_stream << this;
+	address = address_stream.str();
+	return (address);
 }
 
-
-int main(void)
+int 	Brain::getNb_neurals(void)
 {
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
+	return (this->nb_neurals);
 }
-
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp

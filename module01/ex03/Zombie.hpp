@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:49:30 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/13 12:33:17 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef ZOMBIE_H
+#define ZOMBIE_H
 
-void	ponyOnTheStack(std::string name, int age)
-{
-	Pony Stacky(name, age);
+#include <stdlib.h>
+#include <time.h>
+#include <iostream>
+#include <sys/time.h>
+#include <unistd.h>
+
+
+class Zombie {
 	
-	Stacky.present_myself();
-}
+	public:
+	Zombie(std::string name, std::string type);
+	Zombie(void);
+	~Zombie(void);
+	void announce(void) const;
+	void setType(std::string newType);
+	void setName(std::string newName);
+	
+	
+	private:
+	std::string name;
+	std::string type;
+	
+};
 
-void	ponyOnTheHeap(std::string name, int age)
-{
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
-}
-
-
-int main(void)
-{
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
-}
-
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp
+#endif

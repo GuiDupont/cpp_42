@@ -6,7 +6,7 @@
 #    By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/07 11:26:53 by gdupont           #+#    #+#              #
-#    Updated: 2021/05/11 10:55:11 by gdupont          ###   ########.fr        #
+#    Updated: 2021/05/12 17:00:53 by gdupont          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ CXX = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
+VERSION = --std=c++98
+
 SRCS = main.cpp contact.class.cpp
 
 OBJS = ${SRCS:.cpp=.o}
@@ -23,10 +25,10 @@ OBJS = ${SRCS:.cpp=.o}
 all: ${NAME}
 
 $(NAME): ${OBJS}
-	${CXX} ${FLAGS} -o ${NAME} ${OBJS}
+	${CXX} ${FLAGS} ${VERSION} -o ${NAME} ${OBJS}
 
 %.o: %.cpp
-	${CXX} ${FLAGS} -c $< -o $@
+	${CXX} ${FLAGS} ${VERSION} -c $< -o $@
 
 clean:
 	rm -rf ${OBJS}

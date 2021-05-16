@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/12 17:30:44 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef ZOMBIE_EVENT_H
+#define ZOMBIE_EVENT_H
 
-void	ponyOnTheStack(std::string name, int age)
-{
-	Pony Stacky(name, age);
+#include "Zombie.hpp"
+
+
+class ZombieEvent {
 	
-	Stacky.present_myself();
-}
+	public:
 
-void	ponyOnTheHeap(std::string name, int age)
-{
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
-}
+	ZombieEvent(std::string type);
+	~ZombieEvent(void);
 
+	void 		setZombieType(std::string type);
+	Zombie* 	newZombie(std::string name) const;
+	Zombie*		randomChump(void)	const;
 
-int main(void)
-{
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
-}
+	private:
+	std::string type;
+	std::string randomName(void) const;
 
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp
+	
+};
+
+#endif

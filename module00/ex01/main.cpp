@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 16:50:44 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/11 12:08:42 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/05/12 16:55:54 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	print_string_or_space(std::string str)
 void	search_routine(contact contact_list[8], int only_display)
 {
 	int i = -1;
-	std::string buff;
+	int valid = 0;
 
 	print_string_or_space("index");
 	print_string_or_space("first_name");
@@ -56,13 +56,18 @@ void	search_routine(contact contact_list[8], int only_display)
 	}
 	if (only_display || contact_list[0].index == -1)
 		return ;
-	buff[0] = 'a';
-	while (!isdigit(buff[0]))
+	while (!valid)
 	{
 		std::cout << "Que contacto te gustaria ver (indexo por favor)?\n";
-		std::cin >> buff;
+		std::cin >> i;
+		if (!std::cin.fail())
+			valid = 1;
+		else
+			std::cout << "Necessito un digit\n";
+		std::cin.clear();
+		std::cin.ignore(INT_MAX, '\n');
+
 	}
-	i = std::stoi(buff);
 	if (i < 0 || i > 7 || contact_list[i].index == -1)
 	{
 		std::cout << "No es possible\n";
@@ -84,20 +89,28 @@ void	update_variable(std::string *str, std::string variable)
 void	add_routine(contact contact_list[8])
 {
 	int i = -1;
-	std::string buff;
-	while (contact_list[++i].index != -1)
+
+	while (contact_list[++i].index != -1 && i < 8)
 		;
-	if (i == 7)
+	if (i == 8)
 	{
 		search_routine(contact_list, 1);
-		while (!isdigit(buff[0]))
+		while (1)
 		{
 			std::cout << "Capacidad maxima, quien gustaria despegar (indexo por favor)?\n";
-			std::cin >> buff;
+			std::cin >> i;
+			if (!std::cin.fail())
+				break ;
+			else
+				std::cout << "Necessito un digit\n";
+			std::cin.clear();
+			std::cin.ignore(INT_MAX, '\n');
 		}
-		i = std::stoi(buff);
+		
 	}
-	if (i > 7 || i < 0)
+	else
+		std::cout << i << "\n";
+	if (i >= 8 || i < 0)
 	{
 		std::cout << "No es possible\n";
 		return ;
@@ -118,13 +131,9 @@ int main(void)
 		if (strcmp(command, "EXIT") == 0)
 			break;
 		else if (strcmp(command, "ADD") == 0)
-		{
 			add_routine(contact_list);	
-		}
 		else if (strcmp(command, "SEARCH") == 0)
-		{
 			search_routine(contact_list, 0);
-		}
 		else
 			std::cout << "Operation valida estan EXIT, ADD, y SEARCH" << std::endl;
 

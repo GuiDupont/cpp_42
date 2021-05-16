@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ex01.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:45:13 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/12 14:48:19 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
-
-void	ponyOnTheStack(std::string name, int age)
+void	memoryLeak()
 {
-	Pony Stacky(name, age);
-	
-	Stacky.present_myself();
+	std::string* panthere = new std::string("String panthere");
+	std::cout << *panthere << std::endl;
+	delete panthere;
 }
-
-void	ponyOnTheHeap(std::string name, int age)
-{
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
-}
-
-
-int main(void)
-{
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
-}
-
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp

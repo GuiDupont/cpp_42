@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:49:30 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/13 12:50:00 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef BRAIN_H
+#define BRAIN_H
 
-void	ponyOnTheStack(std::string name, int age)
-{
-	Pony Stacky(name, age);
+#include <iostream>
+
+#include <sstream>
+
+class Brain {
 	
-	Stacky.present_myself();
-}
+	public:
+	Brain(void);
+	~Brain(void);
+	int getNb_neurals(void);
+	int		volume;
 
-void	ponyOnTheHeap(std::string name, int age)
-{
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
-}
+	std::string identify() const;
+	
+	
+	private:
+	int		nb_neurals;
+};
 
-
-int main(void)
-{
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
-}
-
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp
+#endif

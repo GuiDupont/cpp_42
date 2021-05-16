@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/13 12:40:17 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/13 12:44:14 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
-
-void	ponyOnTheStack(std::string name, int age)
-{
-	Pony Stacky(name, age);
-	
-	Stacky.present_myself();
-}
-
-void	ponyOnTheHeap(std::string name, int age)
-{
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
-}
-
+#include <iostream>
 
 int main(void)
 {
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
-}
+	std::string brain = "HI THIS IS BRAIN";
+	std::string *brain_ptr = &brain;
+	std::string &brain_ref = brain;
 
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp
+	std::cout << "Avec ptr : " << *brain_ptr << "\n";
+	std::cout << "Avec ref : " << brain_ref << "\n";
+}

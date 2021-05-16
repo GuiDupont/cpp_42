@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:49:27 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/16 19:44:13 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Weapon.hpp"
 
-void	ponyOnTheStack(std::string name, int age)
+
+Weapon::Weapon(std::string newType) : _type(newType)
 {
-	Pony Stacky(name, age);
 	
-	Stacky.present_myself();
 }
 
-void	ponyOnTheHeap(std::string name, int age)
+Weapon::~Weapon(void)
 {
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
+	
 }
 
-
-int main(void)
+const std::string&	Weapon::getType(void) const
 {
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
+	return (this->_type);
 }
 
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp
+void 			Weapon::setType(std::string NewType)
+{
+	this->_type = NewType;
+}

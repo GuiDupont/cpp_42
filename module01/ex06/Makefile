@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/07 11:26:53 by gdupont           #+#    #+#              #
-#    Updated: 2021/05/12 17:02:47 by gdupont          ###   ########.fr        #
+#    Created: 2021/05/12 17:07:14 by gdupont           #+#    #+#              #
+#    Updated: 2021/05/16 19:49:06 by gdupont          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = banking
+NAME = FIGHT
 
 CXX = clang++
 
@@ -18,10 +18,9 @@ FLAGS = -Wall -Wextra -Werror
 
 VERSION = --std=c++98
 
-SRCS_FILES = tests.cpp Account.class.cpp
+SRCS = HumanA.cpp  HumanB.cpp  main.cpp  Weapon.cpp
 
-
-OBJS = ${SRCS_FILES:.cpp=.o}
+OBJS = ${SRCS:.cpp=.o}
 
 all: ${NAME}
 
@@ -39,4 +38,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean

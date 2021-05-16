@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/13 12:29:14 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef ZOMBIE_HORDE_H
+#define ZOMBIE_HORDE_H
 
-void	ponyOnTheStack(std::string name, int age)
-{
-	Pony Stacky(name, age);
+#include "Zombie.hpp"
+
+
+class ZombieHorde {
 	
-	Stacky.present_myself();
-}
+	public:
 
-void	ponyOnTheHeap(std::string name, int age)
-{
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
-}
+	ZombieHorde(unsigned int nb);
+	~ZombieHorde(void);
+	void announce(void) const;
+
+	private:
+	unsigned int size;
+	Zombie *horde;
+	std::string randomName(void) const;
+	std::string randomType(void) const;
 
 
-int main(void)
-{
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
-}
+	
+};
 
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp
+#endif

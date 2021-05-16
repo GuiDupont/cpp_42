@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:49:33 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/16 20:05:32 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "HumanA.hpp"
 
-void	ponyOnTheStack(std::string name, int age)
-{
-	Pony Stacky(name, age);
+
+HumanA::HumanA(std::string newName, Weapon& newWeapon) : _name(newName), _Weapon(newWeapon) {
 	
-	Stacky.present_myself();
 }
 
-void	ponyOnTheHeap(std::string name, int age)
-{
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
+HumanA::~HumanA(void) {	
 }
 
-
-int main(void)
-{
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
+void HumanA::attack(void) const {
+	std::cout << this->_name << " attacks with his " << this->_Weapon.getType() << std::endl;
 }
-
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp

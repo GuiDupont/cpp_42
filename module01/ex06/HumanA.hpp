@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                            		        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/13 12:29:14 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef HUMANA_H
+#define HUMANA_H
 
-void	ponyOnTheStack(std::string name, int age)
-{
-	Pony Stacky(name, age);
+#include "Weapon.hpp"
+
+
+class HumanA {
 	
-	Stacky.present_myself();
-}
+	public:
 
-void	ponyOnTheHeap(std::string name, int age)
-{
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
-}
+	HumanA(std::string name, Weapon& hisWeapon);
+	~HumanA(void);
 
+	void attack(void) const;
 
-int main(void)
-{
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
-}
+	private:
+	std::string _name;
+	Weapon& 	_Weapon;
+};
 
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp
+#endif

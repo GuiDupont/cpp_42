@@ -6,7 +6,7 @@
 #    By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/07 11:26:53 by gdupont           #+#    #+#              #
-#    Updated: 2021/05/11 10:53:14 by gdupont          ###   ########.fr        #
+#    Updated: 2021/05/12 17:02:05 by gdupont          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,17 @@ FLAGS = -Wall -Wextra -Werror
 
 SRCS = megaphone.cpp
 
+VERSION = --std=c++98
+
 OBJS = ${SRCS:.cpp=.o}
 
 all: ${NAME}
 
 $(NAME): ${OBJS}
-	${CXX} ${FLAGS} -o ${NAME} ${OBJS}
+	${CXX} ${FLAGS} ${VERSION} -o ${NAME} ${OBJS}
 
 %.o: %.cpp
-	${CXX} ${FLAGS} -c $< -o $@
+	${CXX} ${FLAGS} ${VERSION} -c $< -o $@
 
 clean:
 	rm -rf ${OBJS}

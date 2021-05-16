@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/12 14:49:27 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/13 11:37:10 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Zombie.hpp"
 
-void	ponyOnTheStack(std::string name, int age)
+Zombie::Zombie(std::string the_name, std::string the_type) :  name(the_name), type(the_type)
 {
-	Pony Stacky(name, age);
-	
-	Stacky.present_myself();
+	this->announce();
 }
 
-void	ponyOnTheHeap(std::string name, int age)
+Zombie::~Zombie(void)
 {
-	Pony*	Heapy = new Pony(name, age);
-	Heapy->present_myself();
-	delete Heapy;
+	std::cout << this->name << ", " << this->type << " is dead\n";
 }
 
-
-int main(void)
+void	Zombie::announce(void) const
 {
-	ponyOnTheStack("Stacky", 10);
-	ponyOnTheHeap("Heapy", 12);
+	std::cout << this->name << ", " << this->type << " Braiiiiiiiiiiiiinnnns ...\n";
 }
 
-// clang++ -Wall -Wextra -Werror --std=c++98 *.cpp
