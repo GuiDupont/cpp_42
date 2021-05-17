@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 16:50:44 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 16:55:54 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/05/17 09:15:50 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,6 @@ void	add_routine(contact contact_list[8])
 		}
 		
 	}
-	else
-		std::cout << i << "\n";
 	if (i >= 8 || i < 0)
 	{
 		std::cout << "No es possible\n";
@@ -121,18 +119,19 @@ void	add_routine(contact contact_list[8])
 
 int main(void)
 {
-	char command[124];
+	// char command[124];
+	std::string command;
 
 	contact contact_list[8];
 	while (1)
 	{
 		std::cout << "Puedes ADD un contacto, SEARCH un contacto o EXIT\n";
 		std::cin >> command;
-		if (strcmp(command, "EXIT") == 0)
+		if (strcmp(command.c_str(), "EXIT") == 0)
 			break;
-		else if (strcmp(command, "ADD") == 0)
+		else if (strcmp(command.c_str(), "ADD") == 0)
 			add_routine(contact_list);	
-		else if (strcmp(command, "SEARCH") == 0)
+		else if (strcmp(command.c_str(), "SEARCH") == 0)
 			search_routine(contact_list, 0);
 		else
 			std::cout << "Operation valida estan EXIT, ADD, y SEARCH" << std::endl;
