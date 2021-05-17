@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:08:08 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/12 14:43:51 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/05/17 09:43:16 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main(void)
 {
 	ponyOnTheStack("Stacky", 10);
 	ponyOnTheHeap("Heapy", 12);
+	return (0);
 }
 
 // clang++ -Wall -Wextra -Werror --std=c++98 *.cpp

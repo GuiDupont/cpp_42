@@ -23,7 +23,9 @@ std::string Human::identify(void) const {
 	return (this->my_brain.identify());
 }
 
-const Brain* Human::getBrain(void) const
+const Brain& Human::getBrain(void) const
 {
-	return (&(this->my_brain));
+	return (this->my_brain);
 }
+
+

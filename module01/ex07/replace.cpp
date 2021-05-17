@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:50:36 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/16 23:47:09 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/05/17 10:45:27 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,18 @@ void	replace(std::ifstream *file, std::ofstream *dest, std::string a, std::strin
 	}
 }
 
+std::string setReplaceName(char *filename)
+{
+	std::string result = "";
+	int i = -1;
+
+	while (filename[++i])
+		result += toupper(filename[i]);
+	result += ".replace";
+	return (result);
+	
+}
+
 int main(int ac, char **av)
 {
 	std::ifstream file;
@@ -54,10 +66,12 @@ int main(int ac, char **av)
 	file.open(av[1], std::ifstream::in);
 	if (!file.is_open())
 		return (print_exit("Can't open file", 1));
-	replaceName = av[1];
-	replaceName += ".replace";
+	replaceName = setReplaceName(av[1]);
 	dest.open(replaceName.c_str(), std::ofstream::out | std::ofstream::trunc);
 	if (!dest.is_open())
 		return (print_exit("Can't open replace file", 1));
 	replace(&file, &dest, av[2], av[3]);
+	return (0);
 }
+
+// ./my_replace marseillaise a b && cat MARSEILLAISE.replace

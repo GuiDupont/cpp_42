@@ -15,7 +15,6 @@
 
 Brain::Brain(void) : volume(12), nb_neurals(5)
 {
-
 }
 
 Brain::~Brain(void)
@@ -27,6 +26,7 @@ std::string Brain::identify(void) const
 {
 	std::stringstream address_stream;
 	std::string address;
+
 	address_stream << this;
 	address = address_stream.str();
 	return (address);

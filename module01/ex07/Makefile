@@ -6,11 +6,11 @@
 #    By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 17:07:14 by gdupont           #+#    #+#              #
-#    Updated: 2021/05/16 21:49:49 by gdupont          ###   ########.fr        #
+#    Updated: 2021/05/17 09:31:11 by gdupont          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = replace
+NAME = my_replace
 
 CXX = clang++
 
@@ -18,7 +18,7 @@ FLAGS = -Wall -Wextra -Werror
 
 VERSION = --std=c++98
 
-SRCS = main.cpp
+SRCS =replace.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 

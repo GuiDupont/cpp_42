@@ -24,7 +24,7 @@ class Human {
 	~Human(void);
 
 	std::string identify(void) const;
-	const Brain* getBrain(void) const;
+	const Brain &getBrain(void) const;
 
 
 	private:
