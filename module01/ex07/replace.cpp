@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:50:36 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 10:45:27 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/05/17 14:00:55 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int main(int ac, char **av)
 
 	if (ac != 4)
 		return (print_exit("Wrong number of arguments", 1));
+	if (!strlen(av[3]) || !strlen(av[2]) || !strlen(av[1]))
+		return (print_exit("Please provides non-empty arguments", 1));
 	file.open(av[1], std::ifstream::in);
 	if (!file.is_open())
 		return (print_exit("Can't open file", 1));
