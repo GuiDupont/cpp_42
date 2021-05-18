@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 15:16:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 17:02:04 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/05/17 22:53:55 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ Fixed::Fixed(Fixed const & tocopy) {
 	return ;
 }
 
-Fixed::Fixed(int const value) : _value(value << Fixed::_pos) {
+Fixed::Fixed(int const value) : _value(roundf(value * (1 << this->_pos))) {
 	std::cout << "Int constructor called\n";
 	return ;
 }
 
-Fixed::Fixed(float const value) : _value(value * pow(8,2)) {
+Fixed::Fixed(float const value) : 
+				_value(roundf(value * (1 << this->_pos))) {
 	std::cout << "Float constructor called\n";
 
 	return ;
@@ -46,7 +47,6 @@ Fixed &	Fixed::operator=(Fixed const & tocopy) {
 }
 
 int 	Fixed::getRawBits(void) const {
-	//std::cout << "getRawBits member function called\n";
 	return (this->_value);
 }
 
@@ -54,27 +54,15 @@ void	Fixed::setRawBits(int const raw) {
 	this->_value = raw;
 }
 
-int main(void) {
-	Fixed 		a;
-	Fixed const b(10);
-	Fixed const c(42.42f);
-	Fixed const d(b);
-
-	a = Fixed(1234.4321f);
-
-	// std::cout << "a is " << a << std::endl;
-	// std::cout << "b is " << a << std::endl;
-	// std::cout << "c is " << a << std::endl;
-	// std::cout << "d is " << a << std::endl;
-	
-	// std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	// std::cout << "b is " << a.toInt() << " as integer" << std::endl;
-	// std::cout << "c is " << a.toInt() << " as integer" << std::endl;
-	// std::cout << "d is " << a.toInt() << " as integer" << std::endl;
-	
-	return 0;
+int		Fixed::getPos(void) const {
+	return (this->_pos);
 }
 
-//clang++ -Wall -Wextra -Werror --std=c++98 *.cpp
-//./a.out && ./a.out > mine && diff mine expected.txt
-//
+std::ostream & operator<<(std::ostream & o, Fixed const & i) {
+	o << ((float)i.getRawBits() / (float)(1 << i.getPos()));
+	return (o);
+}
+
+int		Fixed::toInt(void) const {
+	return ((int)(this->getRawBits() / (1 << this->_pos)));
+}

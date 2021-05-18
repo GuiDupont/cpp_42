@@ -28,15 +28,17 @@ class Fixed {
 
 	Fixed & operator=(Fixed const & nb );
 
-	int	getRawBits(void) const;
+	int		getRawBits(void) const;
+	int		getPos(void) const;
 
-	void setRawBits(int const raw);
+	void	setRawBits(int const raw);
+
+	int		toInt(void) const;
 	
 	private:
 	int _value;
 	static int const _pos = 8;
 };
 
-Fixed
-
+std::ostream & operator<<(std::ostream & o, Fixed const & i);
 #endif
