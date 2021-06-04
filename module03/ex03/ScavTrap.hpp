@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/19 14:13:43 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/25 14:37:24 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef SCAVTRAP_H
+#define SCAVTRAP_H
 
 #include <iostream>
+#include <time.h>
+#include <stdlib.h>
+#include <sys/time.h>
+#include <unistd.h>
+#include <stdint.h>
+#include "ClapTrap.hpp"
 
-class Fixed {
-	
+class ScavTrap : public ClapTrap {
 	public:
 
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
+	ScavTrap(void);
+	ScavTrap(std::string const & name);
+	ScavTrap(ScavTrap const & tocopy);
+	~ScavTrap(void);
 
-	Fixed & operator=(Fixed const & nb );
+	void	challengeNewcomer(void);
 
-	int	getRawBits(void) const;
+	//ScavTrap const & operator=(ScavTrap const & to_copy);
 
-	void setRawBits(int const raw);
-	
 	private:
-	int _value;
-	static int const _pos = 8;
-	
+
 };
 
 #endif
-

@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/03 16:48:34 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/04 10:22:48 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef RAD_SCORPION_H
+# define RAD_SCORPION_H
 
-#include <iostream>
+#include "Enemy.hpp"
 
-class Fixed {
-	
+class RadScorpion : public Enemy {
+	protected:
+
 	public:
+	RadScorpion(void);
+	RadScorpion(RadScorpion const & src);
 
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
+	virtual ~RadScorpion(void);
 
-	Fixed & operator=(Fixed const & nb );
-
-	int	getRawBits(void) const;
-
-	void setRawBits(int const raw);
+	RadScorpion const & operator=(RadScorpion const & to_copy);
 	
-	private:
-	int _value;
-	static int const _pos = 8;
-	
+	virtual void takeDamage(int nb);
 };
 
 #endif

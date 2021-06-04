@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 15:16:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 22:53:55 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/04 14:36:23 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,9 @@ std::ostream & operator<<(std::ostream & o, Fixed const & i) {
 }
 
 int		Fixed::toInt(void) const {
-	return ((int)(this->getRawBits() / (1 << this->_pos)));
+	return ((int)this->getRawBits() / (1 << this->_pos));
+}
+
+float	Fixed::toFloat(void) const {
+	return ((float)this->getRawBits() / (1 << this->_pos));
 }

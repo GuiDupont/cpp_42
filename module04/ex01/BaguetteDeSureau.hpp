@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   BaguetteDeSureau.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/03 16:21:59 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/04 14:17:33 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef BAGUETTE_SUREAU_H
+# define BAGUETTE_SUREAU_H
 
-#include <iostream>
+#include "Aweapon.hpp"
 
-class Fixed {
-	
+class BaguetteDeSureau : public Aweapon {
 	public:
 
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
+	BaguetteDeSureau(void);
+	BaguetteDeSureau(BaguetteDeSureau const & src);
+	virtual ~BaguetteDeSureau(void);
 
-	Fixed & operator=(Fixed const & nb );
+	BaguetteDeSureau const & operator=(BaguetteDeSureau const & rhs);
 
-	int	getRawBits(void) const;
+	virtual void attack(void) const;
 
-	void setRawBits(int const raw);
-	
+	protected:
+
 	private:
-	int _value;
-	static int const _pos = 8;
-	
 };
 
 #endif

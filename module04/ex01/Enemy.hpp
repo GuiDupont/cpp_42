@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   Enemy.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/03 15:06:11 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/03 16:16:58 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef ENEMY_H
+# define ENEMY_H
 
 #include <iostream>
 
-class Fixed {
-	
+class Enemy {
+	protected:
+	int 		_hp;
+	std::string _type;
+
 	public:
 
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
+	Enemy(void);
+	Enemy(int hp, std::string const & type);
+	Enemy(Enemy const & rhs);
+	virtual ~Enemy(void);
+	Enemy const & operator=(Enemy const & to_copy);
 
-	Fixed & operator=(Fixed const & nb );
-
-	int	getRawBits(void) const;
-
-	void setRawBits(int const raw);
+	std::string virtual getType() const;
+	int 				getHp() const;
 	
-	private:
-	int _value;
-	static int const _pos = 8;
-	
+	virtual void takeDamage(int nb);
 };
 
-#endif
 
+#endif

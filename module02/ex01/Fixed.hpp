@@ -34,6 +34,8 @@ class Fixed {
 	void	setRawBits(int const raw);
 
 	int		toInt(void) const;
+	float	toFloat(void) const;
+
 	
 	private:
 	int _value;
@@ -42,3 +44,4 @@ class Fixed {
 
 std::ostream & operator<<(std::ostream & o, Fixed const & i);
 #endif
+

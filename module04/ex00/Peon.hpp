@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   Peon.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/03 14:08:33 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/04 13:48:14 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef PEON_H
+# define PEON_H
 
-#include <iostream>
+#include "Victim.hpp"
 
-class Fixed {
-	
+
+class Peon : virtual public Victim {
 	public:
 
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
+	Peon(void);
+	Peon(std::string const & name);
 
-	Fixed & operator=(Fixed const & nb );
+	Peon(Peon const & rhs);
+	~Peon(void);
+	Peon const & operator=(Peon const & rhs);
 
-	int	getRawBits(void) const;
+	virtual void getPolymorphed(void) const;
 
-	void setRawBits(int const raw);
-	
 	private:
-	int _value;
-	static int const _pos = 8;
-	
 };
 
 #endif

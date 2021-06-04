@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/03 10:26:36 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/03 14:46:58 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#include "Sorcerer.hpp"
+#include "Victim.hpp"
+#include "Peon.hpp"
+#include "Goloum.hpp"
 
-#include <iostream>
+int main()
+{
+	Sorcerer	robert("Robert", "the Magnificient");
+	Victim		jim("Jimmy");
+	Peon		joe("Joe");
+	Goloum		gogo("Gogo");
 
-class Fixed {
-	
-	public:
-
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
-
-	Fixed & operator=(Fixed const & nb );
-
-	int	getRawBits(void) const;
-
-	void setRawBits(int const raw);
-	
-	private:
-	int _value;
-	static int const _pos = 8;
-	
-};
-
-#endif
-
+	std::cout << robert << jim << joe << gogo;
+	robert.polymorph(jim);
+	robert.polymorph(joe);
+	robert.polymorph(gogo);
+}

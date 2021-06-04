@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   common_fct.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/03 11:50:54 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/03 11:51:48 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#include "common_fct.hpp"
 
-#include <iostream>
+void	print_string_upper(std::ostream & o, std::string const & string)
+{
+	int i = -1;
+	char *str = new char[string.length() + 1];
 
-class Fixed {
-	
-	public:
-
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
-
-	Fixed & operator=(Fixed const & nb );
-
-	int	getRawBits(void) const;
-
-	void setRawBits(int const raw);
-	
-	private:
-	int _value;
-	static int const _pos = 8;
-	
-};
-
-#endif
-
+	strcpy(str, string.c_str());
+	while (str[++i])
+		o << (char)toupper(str[i]);
+}

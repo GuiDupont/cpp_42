@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   Goloum.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/03 14:08:33 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/03 14:36:55 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef GOLOUM_H
+# define GOLOUM_H
 
-#include <iostream>
+#include "Victim.hpp"
 
-class Fixed {
-	
+
+class Goloum : virtual public Victim {
 	public:
 
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
+	Goloum(void);
+	Goloum(std::string const & name);
 
-	Fixed & operator=(Fixed const & nb );
+	Goloum(Goloum const & tocopy);
+	~Goloum(void);
+	Goloum const & operator=(Goloum const & to_copy);
 
-	int	getRawBits(void) const;
+	virtual void getPolymorphed(void) const;
 
-	void setRawBits(int const raw);
-	
 	private:
-	int _value;
-	static int const _pos = 8;
-	
 };
 
 #endif

@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/03 16:21:54 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/04 14:17:50 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef POWERFIST_H
+# define POWERFIST_H
 
-#include <iostream>
+#include "Aweapon.hpp"
 
-class Fixed {
-	
+class PowerFist : public Aweapon {
 	public:
 
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
+	PowerFist(void);
+	PowerFist(PowerFist const & src);
+	virtual ~PowerFist(void);
 
-	Fixed & operator=(Fixed const & nb );
+	PowerFist const & operator=(PowerFist const & rhs);
 
-	int	getRawBits(void) const;
+	virtual void attack(void) const;
 
-	void setRawBits(int const raw);
-	
+	protected:
+
 	private:
-	int _value;
-	static int const _pos = 8;
-	
 };
 
 #endif

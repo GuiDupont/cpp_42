@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/05/25 15:10:36 by gdupont           #+#    #+#             */
+/*   Updated: 2021/05/25 15:50:31 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-#include <iostream>
 
-class Fixed {
-	
+class NinjaTrap : public ClapTrap {
 	public:
 
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
+	NinjaTrap(void);
+	NinjaTrap(std::string const & name);
+	NinjaTrap(NinjaTrap const & tocopy);
+	~NinjaTrap(void);
 
-	Fixed & operator=(Fixed const & nb );
-
-	int	getRawBits(void) const;
-
-	void setRawBits(int const raw);
+	NinjaTrap const & operator=(NinjaTrap const & to_copy);
 	
-	private:
-	int _value;
-	static int const _pos = 8;
+	void ninjaShoebox(NinjaTrap & target);
+	void ninjaShoebox(FragTrap & target);
+	void ninjaShoebox(ScavTrap & target);
 	
 };
-
-#endif
 

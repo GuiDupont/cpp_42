@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                    :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 14:56:26 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/17 14:57:43 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/03 16:48:34 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/03 16:52:15 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef SUPERMUTANT_H
+# define SUPERMUTANT_H
 
-#include <iostream>
+#include "Enemy.hpp"
 
-class Fixed {
-	
+class SuperMutant : public Enemy {
+	protected:
+
 	public:
+	SuperMutant();
+	SuperMutant(SuperMutant const & src);
 
-	Fixed(void);
-	Fixed(Fixed const & tocopy);
-	~Fixed(void);
+	virtual ~SuperMutant(void);
 
-	Fixed & operator=(Fixed const & nb );
-
-	int	getRawBits(void) const;
-
-	void setRawBits(int const raw);
+	SuperMutant const & operator=(SuperMutant const & to_copy);
 	
-	private:
-	int _value;
-	static int const _pos = 8;
-	
+	virtual void takeDamage(int nb);
 };
 
 #endif
