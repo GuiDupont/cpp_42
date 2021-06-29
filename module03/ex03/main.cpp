@@ -6,76 +6,28 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 10:25:16 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/02 12:19:24 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 14:08:34 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include "NinjaTrap.hpp"
-
-void	doMeleeAttack(FragTrap & attacker, FragTrap & victim)
-{
-	bool attack_succeed;
-
-	if (!attacker.getEnergyPts() || !victim.getEnergyPts())
-		return ;
-	std::cout << "/\\";
-	attack_succeed = attacker.meleeAttack(victim.getName());
-	std::cout << "/\\\n";
-	if (attack_succeed)
-	{
-		std::cout << "/\\";
-		victim.takeDamage(attacker.getMeleeDmg());
-		std::cout << "/\\\n";
-	}
-}
-
-void	doRangedAttack(FragTrap & attacker, FragTrap & victim) {
-	bool attack_succeed;
-	
-	if (!attacker.getEnergyPts() || !victim.getEnergyPts())
-		return ;
-	std::cout << "/\\";
-	attack_succeed = attacker.rangedAttack(victim.getName());
-	std::cout << "/\\\n";
-	if (attack_succeed)
-	{
-		std::cout << "/\\";
-		victim.takeDamage(attacker.getRangedDmg());
-		std::cout << "/\\\n";
-	}
-}
-
-void	doVaultHunter(FragTrap & attacker, FragTrap & victim) {
- 	bool attack_succeed;
-
-	if (!attacker.getEnergyPts() || !victim.getEnergyPts())
-		return ;
-	std::cout << "/\\";
-	attack_succeed = attacker.vaulthunter_dot_exe(victim.getName());
-	std::cout << "/\\\n";
-	if (attack_succeed)
-	{
-		std::cout << "/\\";
-		victim.takeDamage(attacker.getVaultHunterDmg());
-		std::cout << "/\\\n";
-	}
-}
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
-	FragTrap god("God");
-	FragTrap satan("Satan");
-	ScavTrap hodor("Hodor");
-	NinjaTrap ninja("Nakosa");
+	ClapTrap satan("Satan");
+	DiamondTrap diamond("Didi");
+	ScavTrap	scav("Scav");
+	DiamondTrap diamond2(diamond);
 	
-	srand(time(NULL));
-	ninja.ninjaShoebox(ninja);
-	ninja.ninjaShoebox(ninja);
-	ninja.addHitpts(100);
-	ninja.ninjaShoebox(god);
-	ninja.ninjaShoebox(hodor);
-	ninja.addHitpts(60);
-	ninja.ninjaShoebox(hodor);
+	
+	diamond.whoAmI();
+	diamond2.whoAmI();
+	diamond.attack(satan.getName());
+	satan.takeDamage(diamond.getAttackDmg());
+	diamond.guardGate();
+	diamond.highFivesGuys();
+	return (0);
 }

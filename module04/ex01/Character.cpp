@@ -6,16 +6,11 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 10:36:16 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/04 13:51:00 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:46:41 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
-
-
-Character::Character(void) {
-	return ;
-}
 
 Character::Character(std::string const & name) : _name(name),
 	_AP(40), _weapon(NULL) {
@@ -51,6 +46,7 @@ void	Character::recoverAP() {
 	this->_AP += 10;
 	if (this->_AP > 40)
 		this->_AP = 40;
+	std::cout << "AP is now " << this->_AP << std::endl;
 }
 
 void	Character::equip(Aweapon* weapon) {

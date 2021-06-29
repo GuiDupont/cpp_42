@@ -6,10 +6,9 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 10:25:06 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/28 14:18:38 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 14:19:09 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ClapTrap.hpp"
 
@@ -33,7 +32,7 @@ std::string const & ClapTrap::getName(void) const {
 	return (this->_name);
 }
 
-unsigned int const & 	ClapTrap::getAttackDmg(void) const {
+unsigned int const & ClapTrap::getAttackDmg(void) const {
 	return (this->_attackDmg);
 }
 

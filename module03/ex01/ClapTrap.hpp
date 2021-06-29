@@ -1,42 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 10:25:09 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/02 12:28:28 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 14:10:33 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_H
-#define FRAGTRAP_H
+#ifndef CLAPTRAP_H
+#define CLAPTRAP_H
 
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
 #include <sys/time.h>
-#include <unistd.h>
-#include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap {
+#include <unistd.h>
+
+
+class ClapTrap {
 	public:
 
-	FragTrap(void);
-	FragTrap(std::string const & name);
-	FragTrap(FragTrap const & tocopy);
-	~FragTrap(void);
+		ClapTrap(std::string const & name);
+		ClapTrap(ClapTrap const & rhs);
+		~ClapTrap(void);
 
-	bool	vaulthunter_dot_exe(std::string const & target);
-	
-	unsigned int const & 	getVaultHunterDmg(void) const;
+		void	attack(std::string const & target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
+		
+		std::string	const &		getName(void) const;
+		unsigned int const &	getEnergyPts(void) const;
+		unsigned int const & 	getAttackDmg(void) const;
+		
+		unsigned int const & 	getHitPts(void) const;
 
-	FragTrap const & operator=(FragTrap const & to_copy);
-	
+		ClapTrap const & operator=(ClapTrap const & to_copy);
+
 	private:
+		ClapTrap(void);
 
-	unsigned int	_vaultHunterDmg;
+	protected:
+		std::string		_name;
+		unsigned int	_hitPts;
+		unsigned int	_energyPts;
+		unsigned int	_attackDmg;
+	
+
 };
 
 #endif

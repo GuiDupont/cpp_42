@@ -6,19 +6,13 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 14:13:20 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/04 13:39:55 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:04:10 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Peon.hpp"
 
-Peon::Peon(void) : Victim() {
-	this->_name = "NoName";
-	std::cout << "Zog zog." << std::endl;
-}
-
 Peon::Peon(std::string const & name) : Victim(name) {
-	_name = name;
 	std::cout << "Zog zog." << std::endl;
 }
 

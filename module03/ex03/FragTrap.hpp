@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 10:25:09 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/25 14:54:49 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 10:40:52 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,22 @@
 #include <sys/time.h>
 #include <unistd.h>
 #include "ClapTrap.hpp"
+#include <stdint.h>
 
-class FragTrap : public ClapTrap {
+
+class FragTrap : virtual public ClapTrap {
 	public:
 
 	FragTrap(void);
 	FragTrap(std::string const & name);
 	FragTrap(FragTrap const & tocopy);
 	~FragTrap(void);
-
-	bool	vaulthunter_dot_exe(std::string const & target);
 	
-	unsigned int const & 	getVaultHunterDmg(void) const;
+	void	attack(std::string const & target);
 
 	FragTrap const & operator=(FragTrap const & to_copy);
+
+	void highFivesGuys(void);
 	
 	private:
 

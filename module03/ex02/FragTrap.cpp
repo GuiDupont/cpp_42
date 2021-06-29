@@ -6,70 +6,70 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 10:25:06 by gdupont           #+#    #+#             */
-/*   Updated: 2021/05/25 14:56:22 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 14:26:03 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void) : ClapTrap(), _vaultHunterDmg(25) {
-	_energyPts = 100,
-	_maxEnergyPts = 100; 
-	_meleeAttackDmg = 30;
-	_rangedAttackDmg = 20;
-	_armorDmgReduction = 3;	 
-	std::cout << "We just created a FragTrap named " << this->_name
+FragTrap::FragTrap(std::string const & name) : ClapTrap(name) {
+	_hitPts = 100;
+	_energyPts = 50;
+	_attackDmg = 20;
+	std::cout << "We just created a FragTrap called " << this->getName() << std::endl;
+}
+
+FragTrap::FragTrap(FragTrap const & rhs) : ClapTrap(rhs.getName()) {
+	*this = rhs;
+	std::cout << "We just created a copy FragTrap called " << this->_name
 	<< "\n";
 }
 
-FragTrap::FragTrap(std::string const & name) : 
-			ClapTrap(name), _vaultHunterDmg(25) {
-	this->_energyPts = 100,
-	_maxEnergyPts = 100; 
-	_meleeAttackDmg = 30;
-	_rangedAttackDmg = 20;
-	_armorDmgReduction = 3;
-	std::cout << "We just created a FragTrap called " << this->_name
-	<< "\n";
-}
 
 FragTrap::~FragTrap(void) {
 	std::cout << "FragTrap named " << this->_name << " died\n";
 }
 
-unsigned int const & FragTrap::getVaultHunterDmg(void) const {
-	return (this->_vaultHunterDmg);
-}
-
-FragTrap const & FragTrap::operator=(FragTrap const & toCopy) {
-	this->_name = toCopy.getName() + "copy";
-	this->_hitPts = toCopy.getHitPts();
-	this->_energyPts = toCopy.getEnergyPts();
-	this->_level = toCopy.getLevel();
-	std::cout << "We just copied a FragTrap called " << this->_name
-	<< " from " << toCopy.getName() << "\n"; 
+FragTrap const & FragTrap::operator=(FragTrap const & rhs) {
+	if (this == &rhs)
+		return (*this);
+	ClapTrap::operator=(rhs); 
 	return (*this);
 }
 
-bool		FragTrap::vaulthunter_dot_exe(std::string const & target) {
-	int random;
-
-	std::string attacks[5] = { "calins", "bisous", "papouilles", 
-				"chatouilles", "gillis" };
-	random = rand() % 4;
-	if (this->_vaultHunterDmg > this->_hitPts)
-	{
-		std::cout << this->_name << " n'a pas assez de points d'attaque !";
-		return (0);		
-	}
-	this->_hitPts -= this->_vaultHunterDmg;
+void		FragTrap::attack(std::string const & target) {
 	
-	std::cout	<< this->_name << " attaque " << target 
-				<< " avec des " << attacks[random]
-				<< ", causant " << this->_vaultHunterDmg
-				<< " points de degats ! Maintenant " 
-				<< this->_name << " possede "
-				<< this->_hitPts << " points d'attaque";
-	return (1);
+	
+	if (this->_attackDmg > this->_hitPts)
+	{
+		std::cout << this->getName() << " n'a pas assez de points d'attaque ! Tocard\n";
+		return ;		
+	}
+	this->_hitPts -= this->_attackDmg;
+	std::cout	<< this->getName() << " s'en prend a " << target
+				<< ", lui infligant " << this->_attackDmg 
+				<< " points de degats ! Dorenavant " 
+				<< this->getName() << " detient "
+				<< this->_hitPts << " points d'attaque" << std::endl;
+	return ;	
+}
+
+int	getIntFromCin(std::string to_print, int min, int max) {
+	int i = 0;
+
+	while (1)
+	{
+		std::cout << to_print;
+		std::cin >> i;
+		if (!std::cin.fail() && i >= min && i <= max)
+			return (i);
+		std::cin.clear();
+		std::cin.ignore(INT32_MAX, '\n');
+	}
+}
+
+void	FragTrap::highFivesGuys(void) {
+	int choice = 0;
+
+	choice = getIntFromCin("Salut Freroooooot, tape m'en 5 !\n1 - Oui\n2 - Non\n", 1, 2) - 1;
 }

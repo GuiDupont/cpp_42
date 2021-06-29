@@ -15,7 +15,7 @@
 PowerFist::PowerFist(void) : Aweapon("PowerFist", 50, 8) { }
 
 
-PowerFist::PowerFist(PowerFist const & src) {
+PowerFist::PowerFist(PowerFist const & src) : Aweapon("PowerFist", 50, 8) {
 	*this = src;
 }
 

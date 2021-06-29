@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 15:10:36 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/02 13:03:58 by gdupont          ###   ########.fr       */
+/*   Created: 2021/06/28 10:41:04 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/28 11:42:15 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NINJA_TRAP_H
-#define NINJA_TRAP_H
+#ifndef DIAMONDTRAP_H
+# define DIAMONDTRAP_H
 
-
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-class NinjaTrap : virtual public ClapTrap {
+class DiamondTrap : public FragTrap, public ScavTrap {
 	public:
 
-	NinjaTrap(void);
-	NinjaTrap(std::string const & name);
-	NinjaTrap(NinjaTrap const & tocopy);
-	~NinjaTrap(void);
+	DiamondTrap(std::string const & name);
+	DiamondTrap(DiamondTrap const & rhs);
+	~DiamondTrap(void);
+	void	attack(std::string const & target);
 
-	NinjaTrap const & operator=(NinjaTrap const & to_copy);
-	
-	void ninjaShoebox(NinjaTrap & target);
-	void ninjaShoebox(FragTrap & target);
-	void ninjaShoebox(ScavTrap & target);
-	
+	DiamondTrap const & operator=(DiamondTrap const & rhs);
+
+	void	whoAmI() const;
+	protected:
+
+	private:
+	DiamondTrap(void);
+	std::string		_name;	
+
 };
 
-# endif
+
+#endif
+

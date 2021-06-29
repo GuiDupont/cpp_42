@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/28 15:14:45 by gdupont           #+#    #+#             */
+/*   Updated: 2021/06/28 15:14:47 by gdupont          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef VICTIM_H
 # define VICTIM_H
 
 #include <iostream>
 #include <string.h>
-#include "common_fct.hpp"
 
 class Victim {
 	public:

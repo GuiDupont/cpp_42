@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 16:48:34 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/03 16:52:15 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:37:53 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class SuperMutant : public Enemy {
 	protected:
 
 	public:
-	SuperMutant();
+	SuperMutant(void);
 	SuperMutant(SuperMutant const & src);
 
 	virtual ~SuperMutant(void);

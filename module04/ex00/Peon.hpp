@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 14:08:33 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/04 13:48:14 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:03:52 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Peon : virtual public Victim {
 	public:
 
-	Peon(void);
 	Peon(std::string const & name);
 
 	Peon(Peon const & rhs);
@@ -29,6 +28,7 @@ class Peon : virtual public Victim {
 	virtual void getPolymorphed(void) const;
 
 	private:
+	Peon(void);
 };
 
 #endif

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AssaultTerminator.hpp                              :+:      :+:    :+:   */
+/*   TacticalMarine.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 20:28:33 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/05 16:35:56 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/04 21:00:30 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AssaultTerminator_H
-# define AssaultTerminator_H
+#ifndef TACTICALMARINE_H
+# define TACTICALMARINE_H
 
 #include <iostream>
 #include "ISpaceMarine.hpp"
 
-class AssaultTerminator : public ISpaceMarine {
+class TacticalMarine : virtual public ISpaceMarine {
 	public:
 
-	AssaultTerminator(void);
-	AssaultTerminator(AssaultTerminator const & rhs);
-	~AssaultTerminator(void);
+	TacticalMarine(void);
+	TacticalMarine(TacticalMarine const & rhs);
+	~TacticalMarine(void);
 
-	AssaultTerminator const & operator=(AssaultTerminator const & rhs);
+	TacticalMarine const & operator=(TacticalMarine const & rhs);
 
 	void battleCry() const;
 	void rangedAttack() const;

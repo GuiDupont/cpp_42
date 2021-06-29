@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 16:41:18 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/03 16:57:56 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:44:28 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ RadScorpion::RadScorpion(void)
 		std::cout << "* click click click *" << std::endl;
 }
 
-RadScorpion::RadScorpion(RadScorpion const & src) {
+RadScorpion::RadScorpion(RadScorpion const & src) : Enemy(80, "RadScorpion") {
 	*this = src;
 }
 

@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:39:38 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/04 14:18:04 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:45:33 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,5 @@ int main()
 	delete power;
 	delete bds;
 }
+
+//clang++ -Wall -Wextra -Werror -fsanitize=address --std=c++98 *.cpp  && ./a.out

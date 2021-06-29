@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 11:51:41 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/04 13:45:37 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:10:53 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,13 @@
 
 Sorcerer::Sorcerer(std::string const & name, std::string const & title) : \
 		_name(name), _title(title) {
-	print_string_upper(std::cout, this->_name);
-	std::cout << ", ";
-	print_string_upper(std::cout, this->_title);
-	std::cout << ", is born!" << std::endl;
+	std::cout << this->_name << ", " << this->_title 
+	<< ", is born!" << std::endl;
 }
 
 Sorcerer::~Sorcerer(void) {
-	print_string_upper(std::cout, this->_name);
-	std::cout << ", ";
-	print_string_upper(std::cout, this->_title);
-	std::cout << ", is dead. Consequences will never be the same!" << std::endl;
+	std::cout << this->_name << ", " << this->_title 
+	<< ", is dead. Consequences will never be the same!" << std::endl;
 }
 
 Sorcerer const & Sorcerer::operator=(Sorcerer const & rhs) {
@@ -35,10 +31,8 @@ Sorcerer const & Sorcerer::operator=(Sorcerer const & rhs) {
 
 Sorcerer::Sorcerer(Sorcerer const & rhs) {
 	*this = rhs;
-	print_string_upper(std::cout, this->_name);
-	std::cout << ", ";
-	print_string_upper(std::cout, this->_title);
-	std::cout << ", is born!" << std::endl;	
+	std::cout << this->_name << ", " << this->_title 
+	<< ", is born!" << std::endl;	
 }
 
 std::string const & Sorcerer::getName(void) const
@@ -53,11 +47,8 @@ std::string const & Sorcerer::getTitle(void) const
 
 std::ostream & operator<<(std::ostream & o, Sorcerer const & rhs) {
 	
-	o << "I am ";
-	print_string_upper(o, rhs.getName());
-	o << ", ";
-	print_string_upper(o, rhs.getTitle());
-	o << ", and I like ponies!" << std::endl;
+	o << "I am " << rhs.getName() << ", "
+	<< rhs.getTitle() <<", and I like ponies!" << std::endl;
 	return (o);
 }
 

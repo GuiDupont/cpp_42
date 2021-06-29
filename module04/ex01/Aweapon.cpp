@@ -6,15 +6,11 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:06:09 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/04 11:42:34 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:34:51 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Aweapon.hpp"
-
-Aweapon::Aweapon(void) {
-	;
-}
 
 Aweapon::Aweapon(std::string const & name, int damage, int apcost) :
 	_name(name), _Damage(damage),  _APcost(apcost)

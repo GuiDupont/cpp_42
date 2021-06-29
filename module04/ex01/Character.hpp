@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 10:25:10 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/04 11:14:38 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:39:21 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Character {
 	public:
 
-	Character(void);
 	Character(std::string const & name);
 	Character(Character const & rhs);
 	~Character(void);
@@ -37,7 +36,7 @@ class Character {
 	protected:
 
 	private:
-
+	Character(void);
 	std::string _name;
 	int			_AP;
 	Aweapon		*_weapon;

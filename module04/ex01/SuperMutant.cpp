@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 16:41:18 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/03 16:55:00 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:44:40 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ SuperMutant::SuperMutant(void)
 		std::cout << "Gaaah. Me want smash heads!" << std::endl;
 }
 
-SuperMutant::SuperMutant(SuperMutant const & src) {
+SuperMutant::SuperMutant(SuperMutant const & src) : Enemy(170, "Super Mutant") {
 	*this = src;
 }
 

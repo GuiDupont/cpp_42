@@ -22,7 +22,6 @@ class Enemy {
 
 	public:
 
-	Enemy(void);
 	Enemy(int hp, std::string const & type);
 	Enemy(Enemy const & rhs);
 	virtual ~Enemy(void);
@@ -32,6 +31,9 @@ class Enemy {
 	int 				getHp() const;
 	
 	virtual void takeDamage(int nb);
+
+	private:
+	Enemy(void);
 };
 
 

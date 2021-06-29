@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:42:23 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/04 12:00:03 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/28 15:43:29 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 BaguetteDeSureau::BaguetteDeSureau(void) : Aweapon("BaguetteDeSureau", 100, 1) { }
 
 
-BaguetteDeSureau::BaguetteDeSureau(BaguetteDeSureau const & src) {
+BaguetteDeSureau::BaguetteDeSureau(BaguetteDeSureau const & src) :  Aweapon("BaguetteDeSureau", 100, 1) {
 	*this = src;
 }
 
