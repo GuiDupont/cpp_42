@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 10:25:22 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/25 14:13:58 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/29 12:59:29 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 Bureaucrat::Bureaucrat(void) { }
 
-Bureaucrat::Bureaucrat(std::string const name, int rank) : _name(name), _rank(rank) { 
+Bureaucrat::Bureaucrat(std::string const name, int rank) : _name(name) { 
 	if (rank > 150)
-		throw Bureaucrat::GradeTooHighException();
-	else if (rank < 1)
 		throw Bureaucrat::GradeTooLowException();
+	else if (rank < 1)
+		throw Bureaucrat::GradeTooHighException();
+	this->_rank = rank;
 }
 
 Bureaucrat::~Bureaucrat(void) {
@@ -48,12 +49,12 @@ int 		Bureaucrat::getRank() const {
 
 void		Bureaucrat::incRank() {
 	if (this->_rank == 1)
-		return ;
+		throw Bureaucrat::GradeTooHighException();
 	this->_rank--;
 }
 
 void		Bureaucrat::decRank() {
 	if (this->_rank == 150)
-		return ;
+		throw Bureaucrat::GradeTooLowException();
 	this->_rank++;
 }

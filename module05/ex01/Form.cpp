@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 12:07:10 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/25 16:28:30 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/29 15:47:06 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,10 @@ void		Form::beSigned(Bureaucrat & worker) {
 	{
 		if (worker.getRank() > this->getRankNeededToSign())
 			throw Form::GradeTooLowException();
-		else
-			this->_signed = true;
-			
+		this->_signed = true;
 	}
-	catch (Form::GradeTooLowException e) {
-		std::cout << "I catched a too low exception for the rank needed\n"; 
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
 	}
 
 }
@@ -65,5 +63,3 @@ std::ostream & operator<<(std::ostream & o, Form const & rhs) {
 	<< " to be signed and its signed status is: " << rhs.getSignedStatus() << std::endl;
 	return (o);
 }
-
-

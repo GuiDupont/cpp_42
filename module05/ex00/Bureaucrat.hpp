@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 10:25:33 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/25 14:15:59 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/29 13:02:44 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ class Bureaucrat {
 	class GradeTooLowException : public std::exception
 	{ 
 		virtual const char*  what() const throw() {
-		return ("I catched a too high exception"); 
+		return ("I catched a too low exception"); 
 		}
 	};
 	
 	class GradeTooHighException : public std::exception
 	{ 
 		virtual const char*  what() const throw() {
-		return ("I catched a too low exception");
+		return ("I catched a too high exception");
 		}
 	};
 	
