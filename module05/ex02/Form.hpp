@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 12:02:15 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/25 16:57:12 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/29 16:04:50 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,12 @@ class Form {
 		Form const & operator=(Form const & rhs);
 
 		std::string getName() const;
+		std::string getTarget() const;
 		int			getRankNeededToSign() const;
 		int			getRankNeededToExec() const;
 		bool		getSignedStatus() const;
 		void		beSigned(Bureaucrat & worker);
+		void			canBeExecuted(Bureaucrat const & executor) const;
 
 		virtual void execute (Bureaucrat const & executor) const = 0;
 		
@@ -54,18 +56,21 @@ class Form {
 	class GradeTooLowException : public std::exception
 	{ 
 		virtual const char*  what() const throw() {
-		return ("I catched a too high exception for the form"); 
+		return ("I catched a too low exception for the form"); 
 		}
 	};
 	
 	class GradeTooHighException : public std::exception
 	{ 
 		virtual const char*  what() const throw() {
-		return ("I catched a too low exception for the form");
+		return ("I catched a too high exception for the form");
 		}
 	};
 	
 };
+
+
+
 
 std::ostream & operator<<(std::ostream & o, Form const & rhs);
 

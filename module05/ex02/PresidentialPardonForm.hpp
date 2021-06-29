@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 16:35:21 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/25 16:54:46 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/29 15:28:42 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ class PresidentialPardonForm : public Form {
 	public:
 
 	PresidentialPardonForm(PresidentialPardonForm const & rhs);
+	PresidentialPardonForm(std::string target);
+	
 	~PresidentialPardonForm(void);
 
 	PresidentialPardonForm const & operator=(PresidentialPardonForm const & rhs);
 
-	void execute (Bureaucrat const & executor);
+	void execute (Bureaucrat const & executor) const;
 
 	protected:
 

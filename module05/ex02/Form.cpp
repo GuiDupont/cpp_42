@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 12:07:10 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/25 16:59:49 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/29 16:09:59 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ std::string Form::getName() const {
 	return (this->_name);
 }
 
+std::string Form::getTarget() const {
+	return (this->_target);
+}
+
 int 		Form::getRankNeededToSign() const {
 	return (this->_rankNeededToSign);
 }
@@ -58,10 +62,15 @@ void		Form::beSigned(Bureaucrat & worker) {
 			this->_signed = true;
 			
 	}
-	catch (std::exception e) {
-		std::cout << "I catched a too low exception for the rank needed\n"; 
+	catch (std::exception & e) {
+		std::cout << e.what(); 
 	}
 
+}
+
+void		Form::canBeExecuted(Bureaucrat const & executor) const {
+	if (executor.getRank() > this->getRankNeededToExec())
+			throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream & operator<<(std::ostream & o, Form const & rhs) {
