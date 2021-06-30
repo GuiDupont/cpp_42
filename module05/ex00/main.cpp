@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 10:26:06 by gdupont           #+#    #+#             */
-/*   Updated: 2021/06/29 13:02:03 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/06/30 11:19:28 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int main(void)
     {
         std::cerr << e.what() << '\n';
     }
-	
-
-	
 }
+
+//clang++ -Wall -Wextra -Werror -fsanitize=address --std=c++98 *.cpp && ./a.out
