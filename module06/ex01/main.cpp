@@ -6,41 +6,63 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 10:47:53 by gdupont           #+#    #+#             */
-/*   Updated: 2021/07/01 11:16:50 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/07/01 16:16:44 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 #include <iostream>
 
-class Data {
-	public:
-		double rawbits;
-};
+typedef struct Data {
+	char	rawbits[sizeof(uintptr_t)];
+}				Data;
 
-uintptr_t serialize(Data* ptr) {
-	return (static_cast<uintptr_t>(ptr->rawbits));
+uintptr_t serialize(Data* data) {
+	uintptr_t toReturn;
+	char	*ptr;
+
+	ptr = reinterpret_cast<char*>(&toReturn);
+	for (unsigned long i = 0; i < sizeof(toReturn); i++)
+	{
+		ptr[i] = data->rawbits[i];
+	}
+	return (toReturn);
 }
 
 Data* deserialize(uintptr_t raw) {
-	std::cout << raw << std::endl;
+	char *str;
 	Data *result = new Data();
-	result->rawbits = static_cast<double>(raw);
+	
+	str = reinterpret_cast<char*>(&raw);
+	for (unsigned long i = 0; i < sizeof(raw); i++)
+		result->rawbits[i] = str[i];
 	return (result);
 }
 
+void	displayDataRawBits(Data *data) {
+	for (unsigned long i = 0;i < sizeof(uintptr_t); i++)
+		std::cout << static_cast<int>(data->rawbits[i]) << " ";
+	std::cout << std::endl;
+}
 
 int main(void)
 {
-	Data *test;
-	Data *test3 = deserialize(0);
+	Data 			*data;
+	int				ToTest = 34534;
 
-	uintptr_t	test2;
-
-	test3->rawbits = -34;
-
-	test = deserialize(34245);
-	test2 = serialize(test3);
-	std::cout << test2;
+	data = deserialize(reinterpret_cast<uintptr_t>(&ToTest));
+	std::cout << "\nSerialized   data: " << &ToTest << std::endl;
+	std::cout << "Desarialized data: ";
+	displayDataRawBits(data);
+	std::cout << "Reserialized data: " << reinterpret_cast<int*>(serialize(data))
+	<< std::endl;
+	delete data;
+	
+	data = deserialize(34534);
+	std::cout << "\nSerialized   data: " << ToTest << std::endl;
+	std::cout << "Desarialized data: ";
+	displayDataRawBits(data);
+	std::cout << "Reserialized data: " << serialize(data); 
+	std::cout << "\n"  ;
 	return (0);
 }
