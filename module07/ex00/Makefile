@@ -6,17 +6,17 @@
 #    By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/07 11:26:53 by gdupont           #+#    #+#              #
-#    Updated: 2021/07/02 07:21:02 by gdupont          ###   ########.fr        #
+#    Updated: 2021/07/02 09:47:04 by gdupont          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = identify
+NAME = templates
 
 CXX = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = main.cpp A.cpp B.cpp C.cpp Base.cpp
+SRCS = main.cpp
 
 VERSION = --std=c++98
 
