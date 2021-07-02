@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:46:29 by gdupont           #+#    #+#             */
-/*   Updated: 2021/07/02 14:54:23 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/07/02 15:03:18 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Array {
 
 	private:
 		T 				*_array;
-		int 	_size;
+		int 			_size;
 };
 
 template<typename T>
@@ -43,8 +43,7 @@ int	Array<T>::size(void) const {
 }
 
 template<typename T>
-Array<T>::Array(Array & rhs) {
-	this->_size = 0;
+Array<T>::Array(Array & rhs) : _array(new T[0]), _size(0) {
 	*this = rhs;
 }
 
@@ -52,8 +51,7 @@ template<typename T>
 Array<T> const & Array<T>::operator=(Array<T> const & rhs) {
 	if (this == &rhs)
 		return (*this);
-	if (this->_array && this->_size)
-		delete [] this->_array;
+	delete [] this->_array;
 	this->_array = new T[rhs._size];
 	this->_size = rhs._size;
 	for (int i = 0; i < this->_size; i++) {

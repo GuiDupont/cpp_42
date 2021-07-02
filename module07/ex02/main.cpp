@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:46:32 by gdupont           #+#    #+#             */
-/*   Updated: 2021/07/02 14:55:42 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/07/02 15:05:53 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,17 @@ int main(void)
 	std::cout << "\nIndex 3 de la copie --> n'a pas change : ";
 	printElem(arrayStringCopy, 3);
 
-	std::cout << "\nSize de l'originale: " << arrayString.size();
-	std::cout << "\nSize de la copie: " << arrayStringCopy.size();
-	std::cout << "\n";
+	
 
+
+	Array<int> arrayEmpty;
+	std::cout << "\nSize de l'originale: " << arrayInt.size();
+	std::cout << "\nSize de la copie avant : " << arrayEmpty.size();
+	arrayEmpty = arrayInt;
+	std::cout << "\nSize de la copie apres : " << arrayEmpty.size();
+
+	std::cout << "\n";
+	
 
 	return (0);
 }
