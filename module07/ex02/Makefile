@@ -6,11 +6,11 @@
 #    By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/07 11:26:53 by gdupont           #+#    #+#              #
-#    Updated: 2021/07/01 10:44:20 by gdupont          ###   ########.fr        #
+#    Updated: 2021/07/02 11:50:44 by gdupont          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = Array
 
 CXX = clang++
 
